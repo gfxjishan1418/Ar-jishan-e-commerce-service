@@ -1,0 +1,537 @@
+import { Category, Brand, Product, Coupon, Review, StoreSettings } from "@/types";
+
+export const INITIAL_CATEGORIES: Category[] = [
+  {
+    id: "cat-1",
+    name: "Electronics",
+    slug: "electronics",
+    description: "Latest gadgets, audio, computing & smart accessories",
+    icon_name: "Smartphone",
+    display_order: 1,
+    image_url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+    product_count: 24,
+  },
+  {
+    id: "cat-2",
+    name: "Fashion",
+    slug: "fashion",
+    description: "Trending men's and women's clothing, ethnic & casual wear",
+    icon_name: "Shirt",
+    display_order: 2,
+    image_url: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=600&q=80",
+    product_count: 38,
+  },
+  {
+    id: "cat-3",
+    name: "Beauty",
+    slug: "beauty",
+    description: "Skincare, fragrances, makeup and personal wellness",
+    icon_name: "Sparkles",
+    display_order: 3,
+    image_url: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80",
+    product_count: 19,
+  },
+  {
+    id: "cat-4",
+    name: "Watches",
+    slug: "watches",
+    description: "Smartwatches, chronographs, and luxury timepieces",
+    icon_name: "Watch",
+    display_order: 4,
+    image_url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
+    product_count: 15,
+  },
+  {
+    id: "cat-5",
+    name: "Home & Living",
+    slug: "home-living",
+    description: "Home decor, organizers, kitchenware and lighting",
+    icon_name: "Home",
+    display_order: 5,
+    image_url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80",
+    product_count: 22,
+  },
+  {
+    id: "cat-6",
+    name: "Accessories",
+    slug: "accessories",
+    description: "Backpacks, wallets, eyewear, phone cases and cables",
+    icon_name: "Headphones",
+    display_order: 6,
+    image_url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+    product_count: 31,
+  },
+  {
+    id: "cat-7",
+    name: "Sports",
+    slug: "sports",
+    description: "Athletic wear, running footwear, gym gear & fitness",
+    icon_name: "Activity",
+    display_order: 7,
+    image_url: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
+    product_count: 14,
+  },
+  {
+    id: "cat-8",
+    name: "Lifestyle",
+    slug: "lifestyle",
+    description: "Travel essentials, gourmet coffee & daily productivity",
+    icon_name: "Compass",
+    display_order: 8,
+    image_url: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80",
+    product_count: 17,
+  },
+];
+
+export const INITIAL_BRANDS: Brand[] = [
+  { id: "b-1", name: "Apple", slug: "apple", is_featured: true },
+  { id: "b-2", name: "Samsung", slug: "samsung", is_featured: true },
+  { id: "b-3", name: "Sony", slug: "sony", is_featured: true },
+  { id: "b-4", name: "Xiaomi", slug: "xiaomi", is_featured: true },
+  { id: "b-5", name: "Apex", slug: "apex", is_featured: true },
+  { id: "b-6", name: "Aarong", slug: "aarong", is_featured: true },
+  { id: "b-7", name: "Amazfit", slug: "amazfit", is_featured: true },
+  { id: "b-8", name: "Anker", slug: "anker", is_featured: true },
+];
+
+export const INITIAL_PRODUCTS: Product[] = [
+  {
+    id: "prod-1",
+    name: "Wireless ANC Bluetooth Earbuds",
+    slug: "wireless-anc-bluetooth-earbuds",
+    sku: "ARJ-AUD-001",
+    description: "Premium active noise cancelling earbuds with transparent mode, crystal clear HD microphone, and 32 hours total playback with USB-C fast charging case.",
+    rich_description: `
+      <h3>Engineered for Pure Sound in Bangladesh</h3>
+      <p>Whether navigating the bustling streets of Dhaka or relaxing at home, immerse yourself in studio-grade audio with our flagship wireless earbuds.</p>
+      <ul>
+        <li>Active Noise Cancellation (ANC) up to 35dB</li>
+        <li>Dual beamforming environmental noise cancelling microphones</li>
+        <li>Low latency game mode (under 45ms)</li>
+        <li>IPX5 sweat and rain water resistance</li>
+      </ul>
+    `,
+    regular_price: 3500,
+    sale_price: 2490,
+    category_id: "cat-1",
+    category_name: "Electronics",
+    category_slug: "electronics",
+    brand_id: "b-8",
+    brand_name: "Anker",
+    stock_quantity: 45,
+    is_featured: true,
+    is_new_arrival: false,
+    is_bestseller: true,
+    is_flash_deal: true,
+    flash_deal_end: new Date(Date.now() + 86400000 * 2).toISOString(),
+    rating: 4.6,
+    review_count: 2540,
+    images: [
+      "/images/products/earbuds.jpg",
+      "/images/products/earbuds-mock.png",
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80",
+    ],
+    variants: [
+      { id: "v1-1", product_id: "prod-1", variant_name: "Matte Black", color: "Matte Black", color_hex: "#18181b", price_modifier: 0, stock_quantity: 25 },
+      { id: "v1-2", product_id: "prod-1", variant_name: "Pearl White", color: "Pearl White", color_hex: "#f8fafc", price_modifier: 0, stock_quantity: 20 },
+    ],
+    specifications: {
+      "Driver Size": "10mm Dynamic Drivers",
+      "Bluetooth Version": "Bluetooth 5.3",
+      "Battery Life": "8 hours (earbuds) + 24 hours (case)",
+      "Charging Port": "USB Type-C Fast Charge",
+      "Water Resistance": "IPX5",
+      "Warranty": "1 Year Official Warranty",
+    },
+    is_published: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "prod-2",
+    name: "Smart Watch Ultra Pro AMOLED Display",
+    slug: "smart-watch-ultra-pro-amoled",
+    sku: "ARJ-WCH-002",
+    description: "1.96-inch HD AMOLED display smartwatch featuring comprehensive 24/7 heart rate, SpO2 blood oxygen monitoring, Bluetooth calling, and 100+ sports modes.",
+    rich_description: `
+      <h3>Your Everyday Health & Fitness Companion</h3>
+      <p>Stay connected without reaching for your phone. Make and receive phone calls directly from your wrist with ultra-crisp audio quality.</p>
+      <ul>
+        <li>Stunning Always-On AMOLED Display with 600 nits peak brightness</li>
+        <li>Bangla font and notification support out-of-the-box</li>
+        <li>12-day battery life on a single magnetic charge</li>
+        <li>Zinc-alloy aerospace grade protective bezel</li>
+      </ul>
+    `,
+    regular_price: 4200,
+    sale_price: 3200,
+    category_id: "cat-4",
+    category_name: "Watches",
+    category_slug: "watches",
+    brand_id: "b-7",
+    brand_name: "Amazfit",
+    stock_quantity: 30,
+    is_featured: true,
+    is_new_arrival: true,
+    is_bestseller: true,
+    is_flash_deal: true,
+    flash_deal_end: new Date(Date.now() + 86400000 * 2).toISOString(),
+    rating: 4.7,
+    review_count: 1280,
+    images: [
+      "/images/products/smartwatch.jpg",
+      "/images/products/smartwatch-mock.png",
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+    ],
+    variants: [
+      { id: "v2-1", product_id: "prod-2", variant_name: "Obsidian Black", color: "Black", color_hex: "#09090b", price_modifier: 0, stock_quantity: 18 },
+      { id: "v2-2", product_id: "prod-2", variant_name: "Silver Steel", color: "Silver", color_hex: "#cbd5e1", price_modifier: 200, stock_quantity: 12 },
+    ],
+    specifications: {
+      "Display": "1.96-inch AMOLED 410x502 resolution",
+      "Sensors": "Optical Heart Rate, SpO2, Accelerometer",
+      "Connectivity": "Bluetooth 5.2 BLE",
+      "Battery Capacity": "380 mAh (up to 12 days)",
+      "App Compatibility": "Android 6.0+ / iOS 11.0+",
+      "Warranty": "12 Months Replacement Warranty",
+    },
+    is_published: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "prod-3",
+    name: "Urban Explorer Ergonomic Travel Backpack",
+    slug: "urban-explorer-travel-backpack",
+    sku: "ARJ-BAG-003",
+    description: "Water-resistant, anti-theft urban backpack with dedicated 15.6-inch padded laptop compartment, USB charging pass-through, and breathable orthopedic back panel.",
+    rich_description: `
+      <h3>Built for Bangladesh Commuters & Travelers</h3>
+      <p>Crafted from durable 900D water-repellent oxford fabric to keep your valuable electronics safe during rain and heavy city commutes.</p>
+    `,
+    regular_price: 2500,
+    sale_price: 1850,
+    category_id: "cat-6",
+    category_name: "Accessories",
+    category_slug: "accessories",
+    brand_id: "b-4",
+    brand_name: "Xiaomi",
+    stock_quantity: 28,
+    is_featured: true,
+    is_new_arrival: false,
+    is_bestseller: false,
+    is_flash_deal: true,
+    flash_deal_end: new Date(Date.now() + 86400000 * 2).toISOString(),
+    rating: 4.5,
+    review_count: 985,
+    images: [
+      "/images/products/backpack.jpg",
+      "/images/products/backpack-mock.png",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+    ],
+    variants: [
+      { id: "v3-1", product_id: "prod-3", variant_name: "Charcoal Grey", color: "Charcoal Grey", color_hex: "#334155", price_modifier: 0, stock_quantity: 16 },
+      { id: "v3-2", product_id: "prod-3", variant_name: "Midnight Navy", color: "Midnight Navy", color_hex: "#172554", price_modifier: 0, stock_quantity: 12 },
+    ],
+    specifications: {
+      "Material": "Waterproof 900D Oxford Fabric",
+      "Capacity": "28 Liters",
+      "Laptop Fit": "Up to 15.6 inch",
+      "Weight": "0.78 kg",
+      "Warranty": "6 Months Stitching Warranty",
+    },
+    is_published: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "prod-4",
+    name: "Breathable Cushion Performance Running Shoes",
+    slug: "breathable-cushion-running-shoes",
+    sku: "ARJ-SHOE-004",
+    description: "Engineered mesh running shoes featuring high-rebound EVA midsole cushioning, non-slip rubber grip outsole, and all-day orthopedic comfort.",
+    rich_description: `
+      <h3>Step Into Ultimate Comfort</h3>
+      <p>Whether running in Ramna Park or commuting across town, enjoy effortless responsiveness and shock absorption.</p>
+    `,
+    regular_price: 5500,
+    sale_price: 4500,
+    category_id: "cat-7",
+    category_name: "Sports",
+    category_slug: "sports",
+    brand_id: "b-5",
+    brand_name: "Apex",
+    stock_quantity: 50,
+    is_featured: true,
+    is_new_arrival: true,
+    is_bestseller: true,
+    is_flash_deal: true,
+    flash_deal_end: new Date(Date.now() + 86400000 * 2).toISOString(),
+    rating: 4.7,
+    review_count: 1820,
+    images: [
+      "/images/products/shoes.jpg",
+      "/images/products/shoes-mock.png",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+    ],
+    variants: [
+      { id: "v4-1", product_id: "prod-4", variant_name: "Ash Grey - Size 41", color: "Ash Grey", color_hex: "#64748b", size: "41", price_modifier: 0, stock_quantity: 15 },
+      { id: "v4-2", product_id: "prod-4", variant_name: "Ash Grey - Size 42", color: "Ash Grey", color_hex: "#64748b", size: "42", price_modifier: 0, stock_quantity: 20 },
+      { id: "v4-3", product_id: "prod-4", variant_name: "Ash Grey - Size 43", color: "Ash Grey", color_hex: "#64748b", size: "43", price_modifier: 0, stock_quantity: 15 },
+    ],
+    specifications: {
+      "Upper Material": "Seamless Breathable Flyknit Mesh",
+      "Sole Material": "High-bounce EVA + Anti-slip Rubber",
+      "Closure": "Lace-Up",
+      "Ideal For": "Running, Gym, Daily Walking",
+    },
+    is_published: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "prod-5",
+    name: "Over-Ear Studio Hi-Fi Wireless Headphones",
+    slug: "over-ear-studio-hifi-headphones",
+    sku: "ARJ-AUD-005",
+    description: "Flagship over-ear hybrid noise cancelling headphones with custom 40mm titanium diaphragm drivers, 60-hour marathon battery life, and ultra-soft memory foam earcups.",
+    rich_description: `
+      <h3>Audiophile Quality at Your Fingertips</h3>
+      <p>Immerse yourself in deep bass and sparkling trebles. Foldable design with premium travel hardcase included.</p>
+    `,
+    regular_price: 7800,
+    sale_price: 5990,
+    category_id: "cat-1",
+    category_name: "Electronics",
+    category_slug: "electronics",
+    brand_id: "b-3",
+    brand_name: "Sony",
+    stock_quantity: 22,
+    is_featured: true,
+    is_new_arrival: false,
+    is_bestseller: true,
+    is_flash_deal: false,
+    rating: 4.9,
+    review_count: 3120,
+    images: [
+      "/images/products/headphones.jpg",
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+    ],
+    variants: [
+      { id: "v5-1", product_id: "prod-5", variant_name: "Midnight Black", color: "Midnight Black", color_hex: "#0f172a", price_modifier: 0, stock_quantity: 12 },
+      { id: "v5-2", product_id: "prod-5", variant_name: "Champagne Silver", color: "Champagne Silver", color_hex: "#e2e8f0", price_modifier: 0, stock_quantity: 10 },
+    ],
+    specifications: {
+      "Driver": "40mm Titanium Drivers",
+      "Playtime": "Up to 60 Hours (ANC Off), 40 Hours (ANC On)",
+      "Charging": "10 min quick charge for 5 hours play",
+      "Microphone": "4-Mic Voice Array with AI De-noise",
+    },
+    is_published: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "prod-6",
+    name: "Premium Linen Mandarin Collar Casual Shirt",
+    slug: "premium-linen-mandarin-casual-shirt",
+    sku: "ARJ-FAS-006",
+    description: "Tailored 100% pure organic breathable linen shirt with clean mandarin band collar, coconut shell buttons, and refined modern silhouette.",
+    rich_description: `
+      <h3>Sophisticated Style for the Warm Climate</h3>
+      <p>Stay cool, comfortable and effortlessly stylish in Bangladesh's weather with our signature breathable linen collection.</p>
+    `,
+    regular_price: 2450,
+    sale_price: 1850,
+    category_id: "cat-2",
+    category_name: "Fashion",
+    category_slug: "fashion",
+    brand_id: "b-6",
+    brand_name: "Aarong",
+    stock_quantity: 60,
+    is_featured: true,
+    is_new_arrival: true,
+    is_bestseller: true,
+    is_flash_deal: false,
+    rating: 4.8,
+    review_count: 840,
+    images: [
+      "/images/products/linen-shirt.jpg",
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
+    ],
+    variants: [
+      { id: "v6-1", product_id: "prod-6", variant_name: "Off-White - M", color: "Off-White", color_hex: "#f8fafc", size: "M", price_modifier: 0, stock_quantity: 20 },
+      { id: "v6-2", product_id: "prod-6", variant_name: "Off-White - L", color: "Off-White", color_hex: "#f8fafc", size: "L", price_modifier: 0, stock_quantity: 20 },
+      { id: "v6-3", product_id: "prod-6", variant_name: "Sky Blue - L", color: "Sky Blue", color_hex: "#38bdf8", size: "L", price_modifier: 0, stock_quantity: 20 },
+    ],
+    specifications: {
+      "Fabric": "100% Pre-washed Organic Linen",
+      "Fit": "Regular Tailored Fit",
+      "Collar": "Mandarin / Band Collar",
+      "Care": "Machine wash cold, gentle cycle",
+    },
+    is_published: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "prod-7",
+    name: "Ultra-Hydrating Botanical Face Serum 50ml",
+    slug: "ultra-hydrating-botanical-face-serum",
+    sku: "ARJ-BEA-007",
+    description: "Deep moisture infusion with Multi-Molecular Hyaluronic Acid, Niacinamide 5%, and soothing organic Aloe Vera extract for radiant, glass skin.",
+    rich_description: `
+      <h3>Restore Skin Glow & Elasticity</h3>
+      <p>Dermatologically tested formula tailored for South Asian skin types to combat pollution, dryness and uneven texture.</p>
+    `,
+    regular_price: 1800,
+    sale_price: 1350,
+    category_id: "cat-3",
+    category_name: "Beauty",
+    category_slug: "beauty",
+    brand_id: "b-6",
+    brand_name: "Aarong",
+    stock_quantity: 35,
+    is_featured: true,
+    is_new_arrival: false,
+    is_bestseller: false,
+    is_flash_deal: false,
+    rating: 4.6,
+    review_count: 530,
+    images: [
+      "/images/products/face-serum.jpg",
+      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80",
+    ],
+    specifications: {
+      "Volume": "50 ml / 1.7 fl oz",
+      "Skin Type": "All Skin Types, including Sensitive",
+      "Key Ingredients": "Hyaluronic Acid, Niacinamide, Centella Asiatica",
+      "Cruelty Free": "Yes, 100% Vegan & Paraben-free",
+    },
+    is_published: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "prod-8",
+    name: "Minimalist Scandinavian Ceramic Desk Lamp",
+    slug: "minimalist-scandinavian-ceramic-desk-lamp",
+    sku: "ARJ-HOM-008",
+    description: "Handcrafted warm ceramic base lamp with natural linen shade, 3-level touch dimming, and energy-saving warm white LED bulb included.",
+    rich_description: `
+      <h3>Elevate Your Living Space</h3>
+      <p>Adds warm, serene ambient lighting to bedside tables, living room consoles, or home study desks.</p>
+    `,
+    regular_price: 3200,
+    sale_price: 2400,
+    category_id: "cat-5",
+    category_name: "Home & Living",
+    category_slug: "home-living",
+    brand_id: "b-4",
+    brand_name: "Xiaomi",
+    stock_quantity: 15,
+    is_featured: true,
+    is_new_arrival: true,
+    is_bestseller: false,
+    is_flash_deal: false,
+    rating: 4.7,
+    review_count: 410,
+    images: [
+      "/images/products/desk-lamp.jpg",
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
+    ],
+    specifications: {
+      "Base Material": "Matte Glazed Ceramic",
+      "Shade": "Natural Textured Linen",
+      "Bulb Base": "E27 (9W LED bulb included)",
+      "Cable Length": "1.8m Fabric-braided Cord",
+    },
+    is_published: true,
+    created_at: new Date().toISOString(),
+  },
+];
+
+export const INITIAL_COUPONS: Coupon[] = [
+  {
+    code: "ARJISHAN10",
+    discount_type: "percentage",
+    discount_value: 10,
+    min_purchase_amount: 1500,
+    max_discount_amount: 500,
+    is_active: true,
+  },
+  {
+    code: "WELCOME50",
+    discount_type: "fixed_amount",
+    discount_value: 100,
+    min_purchase_amount: 1000,
+    is_active: true,
+  },
+  {
+    code: "EIDSPECIAL",
+    discount_type: "percentage",
+    discount_value: 15,
+    min_purchase_amount: 3000,
+    max_discount_amount: 1000,
+    is_active: true,
+  },
+];
+
+export const INITIAL_REVIEWS: Review[] = [
+  {
+    id: "rev-1",
+    product_id: "prod-1",
+    customer_name: "Tanvir Ahmed",
+    customer_location: "Dhanmondi, Dhaka",
+    rating: 5,
+    comment: "Excellent sound quality! The noise cancellation works great in Dhaka traffic. Received delivery within 24 hours via Cash on Delivery.",
+    is_verified_purchase: true,
+    created_at: "2026-10-25T14:30:00Z",
+  },
+  {
+    id: "rev-2",
+    product_id: "prod-2",
+    customer_name: "Farhana Yasmin",
+    customer_location: "Nasirabad, Chattogram",
+    rating: 5,
+    comment: "The AMOLED display is gorgeous and the battery lasts almost two weeks! Paid via bKash, seamless transaction.",
+    is_verified_purchase: true,
+    created_at: "2026-10-28T09:15:00Z",
+  },
+  {
+    id: "rev-3",
+    product_id: "prod-4",
+    customer_name: "Mahmud Hasan",
+    customer_location: "Uttara, Dhaka",
+    rating: 5,
+    comment: "Very lightweight running shoes. Sizing is true to fit. Packaging was top-notch with authentic AR Jishan warranty sticker.",
+    is_verified_purchase: true,
+    created_at: "2026-10-29T18:00:00Z",
+  },
+];
+
+export const STORE_SETTINGS: StoreSettings = {
+  store_name: "AR JISHAN E-COMMERCE SERVICE",
+  support_phone: "+880 1700-000000",
+  support_email: "support@arjishan.com",
+  office_address: "House 42, Road 11, Banani, Dhaka-1213, Bangladesh",
+  dhaka_shipping_fee: 60,
+  outside_dhaka_shipping_fee: 120,
+  free_shipping_threshold: 1000,
+};
+
+// BANGLADESH ADMINISTRATIVE DIVISIONS & DISTRICTS
+export const BD_DIVISIONS = [
+  "Dhaka",
+  "Chattogram",
+  "Rajshahi",
+  "Khulna",
+  "Barishal",
+  "Sylhet",
+  "Rangpur",
+  "Mymensingh",
+] as const;
+
+export const BD_DISTRICTS_BY_DIVISION: Record<string, string[]> = {
+  Dhaka: ["Dhaka", "Gazipur", "Narayanganj", "Tangail", "Faridpur", "Manikganj", "Munshiganj", "Narsingdi", "Kishoreganj", "Madaripur", "Gopalganj", "Rajbari", "Shariatpur"],
+  Chattogram: ["Chattogram", "Cox's Bazar", "Cumilla", "Feni", "Brahmanbaria", "Noakhali", "Chandpur", "Lakshmipur", "Khagrachhari", "Rangamati", "Bandarban"],
+  Rajshahi: ["Rajshahi", "Bogura", "Pabna", "Sirajganj", "Naogaon", "Natore", "Chapai Nawabganj", "Joypurhat"],
+  Khulna: ["Khulna", "Jashore", "Kushtia", "Satkhira", "Jhenaidah", "Bagerhat", "Chuadanga", "Meherpur", "Narail", "Magura"],
+  Barishal: ["Barishal", "Patuakhali", "Bhola", "Pirojpur", "Barguna", "Jhalokati"],
+  Sylhet: ["Sylhet", "Moulvibazar", "Habiganj", "Sunamganj"],
+  Rangpur: ["Rangpur", "Dinajpur", "Kurigram", "Gaibandha", "Nilphamari", "Panchagarh", "Thakurgaon", "Lalmonirhat"],
+  Mymensingh: ["Mymensingh", "Jamalpur", "Netrokona", "Sherpur"],
+};
