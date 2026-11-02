@@ -29,14 +29,14 @@ VALUES
 ('b1000000-0000-0000-0000-000000000008', 'Anker', 'anker', TRUE)
 ON CONFLICT (slug) DO NOTHING;
 
--- 3. SEED PRODUCTS
+-- 3. SEED PRODUCTS (Using valid hex UUID prefix a1000000...)
 INSERT INTO public.products (
   id, name, slug, sku, description, regular_price, sale_price, category_id, brand_id, stock_quantity,
   is_featured, is_new_arrival, is_bestseller, is_flash_deal, rating, review_count, is_published
 )
 VALUES
 (
-  'p1000000-0000-0000-0000-000000000001',
+  'a1000000-0000-0000-0000-000000000001',
   'Wireless ANC Bluetooth Earbuds',
   'wireless-anc-bluetooth-earbuds',
   'ARJ-AUD-001',
@@ -49,7 +49,7 @@ VALUES
   TRUE, FALSE, TRUE, TRUE, 4.6, 2540, TRUE
 ),
 (
-  'p1000000-0000-0000-0000-000000000002',
+  'a1000000-0000-0000-0000-000000000002',
   'Smart Watch Ultra Pro AMOLED Display',
   'smart-watch-ultra-pro-amoled',
   'ARJ-WCH-002',
@@ -62,7 +62,7 @@ VALUES
   TRUE, TRUE, TRUE, TRUE, 4.7, 1280, TRUE
 ),
 (
-  'p1000000-0000-0000-0000-000000000003',
+  'a1000000-0000-0000-0000-000000000003',
   'Urban Explorer Ergonomic Travel Backpack',
   'urban-explorer-travel-backpack',
   'ARJ-BAG-003',
@@ -75,7 +75,7 @@ VALUES
   TRUE, FALSE, FALSE, TRUE, 4.5, 985, TRUE
 ),
 (
-  'p1000000-0000-0000-0000-000000000004',
+  'a1000000-0000-0000-0000-000000000004',
   'Breathable Cushion Performance Running Shoes',
   'breathable-cushion-running-shoes',
   'ARJ-SHOE-004',
@@ -88,7 +88,7 @@ VALUES
   TRUE, TRUE, TRUE, TRUE, 4.7, 1820, TRUE
 ),
 (
-  'p1000000-0000-0000-0000-000000000005',
+  'a1000000-0000-0000-0000-000000000005',
   'Over-Ear Studio Hi-Fi Wireless Headphones',
   'over-ear-studio-hifi-headphones',
   'ARJ-AUD-005',
@@ -101,7 +101,7 @@ VALUES
   TRUE, FALSE, TRUE, FALSE, 4.9, 3120, TRUE
 ),
 (
-  'p1000000-0000-0000-0000-000000000006',
+  'a1000000-0000-0000-0000-000000000006',
   'Premium Linen Mandarin Collar Casual Shirt',
   'premium-linen-mandarin-casual-shirt',
   'ARJ-FAS-006',
@@ -114,7 +114,7 @@ VALUES
   TRUE, TRUE, TRUE, FALSE, 4.8, 840, TRUE
 ),
 (
-  'p1000000-0000-0000-0000-000000000007',
+  'a1000000-0000-0000-0000-000000000007',
   'Ultra-Hydrating Botanical Face Serum 50ml',
   'ultra-hydrating-botanical-face-serum',
   'ARJ-BEA-007',
@@ -127,7 +127,7 @@ VALUES
   TRUE, FALSE, FALSE, FALSE, 4.6, 530, TRUE
 ),
 (
-  'p1000000-0000-0000-0000-000000000008',
+  'a1000000-0000-0000-0000-000000000008',
   'Minimalist Scandinavian Ceramic Desk Lamp',
   'minimalist-scandinavian-ceramic-desk-lamp',
   'ARJ-HOM-008',
@@ -144,14 +144,14 @@ ON CONFLICT (slug) DO NOTHING;
 -- 4. SEED PRODUCT IMAGES
 INSERT INTO public.product_images (product_id, image_url, is_primary)
 VALUES
-('p1000000-0000-0000-0000-000000000001', '/images/products/earbuds.jpg', TRUE),
-('p1000000-0000-0000-0000-000000000002', '/images/products/smartwatch.jpg', TRUE),
-('p1000000-0000-0000-0000-000000000003', '/images/products/backpack.jpg', TRUE),
-('p1000000-0000-0000-0000-000000000004', '/images/products/shoes.jpg', TRUE),
-('p1000000-0000-0000-0000-000000000005', '/images/products/headphones.jpg', TRUE),
-('p1000000-0000-0000-0000-000000000006', '/images/products/linen-shirt.jpg', TRUE),
-('p1000000-0000-0000-0000-000000000007', '/images/products/face-serum.jpg', TRUE),
-('p1000000-0000-0000-0000-000000000008', '/images/products/desk-lamp.jpg', TRUE);
+('a1000000-0000-0000-0000-000000000001', '/images/products/earbuds.jpg', TRUE),
+('a1000000-0000-0000-0000-000000000002', '/images/products/smartwatch.jpg', TRUE),
+('a1000000-0000-0000-0000-000000000003', '/images/products/backpack.jpg', TRUE),
+('a1000000-0000-0000-0000-000000000004', '/images/products/shoes.jpg', TRUE),
+('a1000000-0000-0000-0000-000000000005', '/images/products/headphones.jpg', TRUE),
+('a1000000-0000-0000-0000-000000000006', '/images/products/linen-shirt.jpg', TRUE),
+('a1000000-0000-0000-0000-000000000007', '/images/products/face-serum.jpg', TRUE),
+('a1000000-0000-0000-0000-000000000008', '/images/products/desk-lamp.jpg', TRUE);
 
 -- 5. SEED COUPONS
 INSERT INTO public.coupons (code, discount_type, discount_value, min_purchase_amount, max_discount_amount, is_active)
