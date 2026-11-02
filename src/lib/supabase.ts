@@ -8,5 +8,10 @@ export const isSupabaseConfigured = Boolean(
   process.env.NEXT_PUBLIC_SUPABASE_URL !== "https://placeholder-project.supabase.co"
 );
 
-// Client-side Supabase client
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Client-side & server-side safe Supabase client
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: typeof window !== "undefined",
+    autoRefreshToken: typeof window !== "undefined",
+  },
+});

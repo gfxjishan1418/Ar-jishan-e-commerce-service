@@ -7,6 +7,7 @@ import {
   STORE_SETTINGS 
 } from "@/data/mockData";
 import { Product, Category, Brand, Order, Coupon, Review, OrderStatus, PaymentStatus } from "@/types";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 // In-memory / browser fallback store for stateful operations
 let productsCache: Product[] = [...INITIAL_PRODUCTS];
@@ -249,6 +250,35 @@ export const dataService = {
     };
 
     ordersCache.unshift(newOrder);
+
+    // Sync with Supabase when tables are present
+    if (isSupabaseConfigured) {
+      try {
+        supabase.from("orders").insert({
+          order_number: newOrder.order_number,
+          customer_name: newOrder.customer_name,
+          customer_phone: newOrder.customer_phone,
+          customer_email: newOrder.customer_email,
+          shipping_division: newOrder.shipping_division,
+          shipping_district: newOrder.shipping_district,
+          shipping_upazila: newOrder.shipping_upazila,
+          shipping_address: newOrder.shipping_address,
+          payment_method: newOrder.payment_method,
+          payment_status: newOrder.payment_status,
+          order_status: newOrder.order_status,
+          subtotal: newOrder.subtotal,
+          discount_amount: newOrder.discount_amount,
+          shipping_fee: newOrder.shipping_fee,
+          total_amount: newOrder.total_amount,
+          courier_name: newOrder.courier_name,
+          courier_tracking_id: newOrder.courier_tracking_id,
+        }).then(({ error }) => {
+          if (error) console.warn("Supabase order sync notice:", error.message);
+        });
+      } catch (e) {
+        console.warn("Supabase sync:", e);
+      }
+    }
 
     // Deduct stock
     for (const item of newOrder.items) {
